@@ -7,6 +7,7 @@ public class PlayerAnimations : MonoBehaviour
     private readonly int _moveY = Animator.StringToHash("MoveY");
     private readonly int _moving = Animator.StringToHash("Moving");
     private readonly int _dead = Animator.StringToHash("Dead");
+    private readonly int _revive = Animator.StringToHash("Revive");
 
     private Animator _animator;
 
@@ -29,5 +30,11 @@ public class PlayerAnimations : MonoBehaviour
     public void SetDeadAnimation()
     {
         _animator.SetTrigger(_dead);
+    }
+
+    public void ResetPlayerAnimation()
+    {
+        SetMoveAnimation(Vector2.down);
+        _animator.SetTrigger(_revive);
     }
 }
